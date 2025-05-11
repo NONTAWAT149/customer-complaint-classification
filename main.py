@@ -24,8 +24,9 @@ def main():
     Returns:
     None
     """
-    # TODO: Call the function to transcribe the audio complaint.
-
+    #Call the function to transcribe the audio complaint.
+    stt_result = transcribe_audio()
+    
     # TODO: Create a prompt from the transcription.
 
     # TODO: Generate an image based on the prompt.
@@ -41,5 +42,5 @@ def main():
     pass  # Replace this with your implementation
 
 # Example Usage (for testing purposes, remove/comment when deploying):
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
