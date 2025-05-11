@@ -6,9 +6,17 @@ from dalle import generate_image
 from vision import describe_image
 from gpt import classify_with_gpt
 
+
+def create_prompt(transcription):
+    # Analyze the transcription and extract key details
+    prompt = (
+        "Generate a response to a customer complaint. "
+        f"The customer says: '{transcription}'. "
+        "Please provide a helpful response addressing their concerns."
+    )
+    return prompt
+
 # Main function to orchestrate the workflow
-
-
 def main():
     """
     Orchestrates the workflow for handling customer complaints.
@@ -28,10 +36,13 @@ def main():
     stt_result = transcribe_audio()
     
     # TODO: Create a prompt from the transcription.
+    customer_prompt = create_prompt(stt_result)
 
     # TODO: Generate an image based on the prompt.
-
+    generate_image(customer_prompt)
+    
     # TODO: Describe the generated image.
+    
 
     # TODO: Annotate the reported issue in the image.
 

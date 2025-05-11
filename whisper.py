@@ -1,8 +1,5 @@
 # whisper.py
-
-import openai
 import os
-from pydub import AudioSegment
 from openai import AzureOpenAI
 from dotenv import load_dotenv
 
@@ -54,6 +51,9 @@ def transcribe_audio():
 
     #Extract the transcription and return it.
     text_result = stt(audio_segment, model_endpoint)
+    
+    with open("output/dtransciption.txt", "a") as f:
+        f.write(text_result)
     
     return text_result
 
