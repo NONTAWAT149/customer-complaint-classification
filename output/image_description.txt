@@ -1,0 +1,2 @@
+The problem of the product is:
+- Arrow button (specifically the right arrow key) not responding or not working when pressed.

@@ -75,7 +75,14 @@ def describe_image(stt_result):
         frequency_penalty=0.0,
         presence_penalty=0.0,
     )
-    return response.choices[0].message.content
+    
+    customer_issue = response.choices[0].message.content
+        
+    # Save customer issue
+    with open("output/image_description.txt", "a") as f:
+        f.write(customer_issue)
+    
+    return customer_issue
     
 
 def annotate_image(issue_list):
