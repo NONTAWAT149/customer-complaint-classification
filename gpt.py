@@ -1,5 +1,3 @@
-# gpt.py
-
 from openai import AzureOpenAI
 import json
 import os
@@ -17,6 +15,7 @@ def classify_with_gpt(problem_list):
     Returns:
     str: The category and subcategory of the complaint.
     """
+    
     #Create a prompt that includes the image description and other relevant details.
     with open('categories.json', 'r') as file:
         classification_json = json.load(file)

@@ -1,4 +1,3 @@
-# dalle.py
 # Reference: https://learn.microsoft.com/en-us/azure/ai-services/openai/dall-e-quickstart?tabs=command-line%2Ckeyless%2Ctypescript-keyless&pivots=programming-language-python 
 
 from openai import AzureOpenAI
@@ -7,6 +6,7 @@ import os
 from PIL import Image
 import json
 from dotenv import load_dotenv
+
 
 # Load API data
 load_dotenv()

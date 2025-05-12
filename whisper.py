@@ -1,4 +1,3 @@
-# whisper.py
 import os
 from openai import AzureOpenAI
 from dotenv import load_dotenv
@@ -10,9 +9,11 @@ WHISPER_VERSION = os.getenv('WHISPER_VERSION')
 WHISPER_KEY = os.getenv('WHISPER_KEY')
 WHISPER_NAME = os.getenv('WHISPER_NAME')
 
+
 def read_audio_file(file_path):
     # Load the audio file.
     return open(file_path, "rb")
+
 
 def openai_client(api_version, api_key, api_endpoint):
     # Call model from Azure API
@@ -22,6 +23,7 @@ def openai_client(api_version, api_key, api_endpoint):
         azure_endpoint=api_endpoint
     )
 
+
 def stt(audio_file, client):
     # Extract the transcription and return it.
     return client.audio.transcriptions.create(
@@ -29,6 +31,7 @@ def stt(audio_file, client):
         model=WHISPER_NAME,
         response_format="text"
     )
+
 
 def transcribe_audio(audio_file):
     """

@@ -1,5 +1,3 @@
-# vision.py
-
 from openai import AzureOpenAI
 from mimetypes import guess_type
 from PIL import Image, ImageDraw
@@ -39,6 +37,7 @@ def openai_client(api_version, api_key, api_endpoint):
 def gpt_client(api_version, api_key, api_endpoint):
     # Call GPT model
     return openai_client(api_version, api_key, api_endpoint)
+
 
 def describe_image(stt_result):
     """
@@ -80,7 +79,19 @@ def describe_image(stt_result):
     
 
 def annotate_image(issue_list):
-    
+    """
+    Identifies the center coordinates of visual issues on a generated image based on a given list of customer complaints.
+
+    The function sends both the image and a textual prompt to a multimodal GPT model, requesting it to return 
+    the (x, y) center coordinates of bounding boxes corresponding to the listed problems.
+
+    Args:
+    issue_list (list of str): A list of customer-reported issues to locate on the image.
+
+    Returns:
+    tuple: (x, y) coordinates representing the center points of the identified issues.
+    """
+
     # Load image path
     data_url = local_image_to_data_url('output/generated_image.png')
     
@@ -117,6 +128,18 @@ def annotate_image(issue_list):
 
 
 def draw_bounding_box(coordinate_tuple):
+    """
+    Annotates an image by drawing a bounding box and descriptive text at a specified coordinate.
+
+    The function highlights the location of a detected issue on a saved image by drawing a red rectangle 
+    and a short message at the given (x, y) coordinate. The annotated image is saved and displayed.
+
+    Args:
+    coordinate_tuple (tuple): A tuple (x, y) representing the center point of the issue on the image.
+
+    Returns:
+    None
+    """
     
     # Load the image
     image_path = "output/generated_image.png"

@@ -1,5 +1,3 @@
-# main.py
-
 # Import functions from other modules
 from whisper import transcribe_audio
 from dalle import generate_image
@@ -15,7 +13,7 @@ def create_prompt(transcription):
         "Please provide a helpful response addressing their concerns."
     )
 
-# Main function to orchestrate the workflow
+
 def main(audio_file):
     """
     Orchestrates the workflow for handling customer complaints.
@@ -59,7 +57,11 @@ def main(audio_file):
     
     return None
 
-# Example Usage (for testing purposes, remove/comment when deploying):
+
 if __name__ == "__main__":
+    
+    #Define audio file
     audio_file = "audio/complain_2.m4a"
+    
+    #Execute main function
     main(audio_file)
