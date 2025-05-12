@@ -8,8 +8,8 @@ from gpt import classify_with_gpt
 def create_prompt(transcription):
     # write the transcription for extracting key details of customer complaint.
     return (
-        "Generate a response to a customer complaint. "
-        f"The customer says: '{transcription}'. "
+        "Generate a response to a customer complaint."
+        f"The customer says: {transcription}."
         "Please provide a helpful response addressing their concerns."
     )
 
