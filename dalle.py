@@ -6,14 +6,14 @@ import requests
 import os
 from PIL import Image
 import json
+from dotenv import load_dotenv
 
+# Load API data
+load_dotenv()
 DALLE_API = os.getenv('DALLE_API')
 DALLE_VERSION = os.getenv('DALLE_VERSION')
 DALLE_KEY = os.getenv('DALLE_KEY')
 DALLE_NAME = os.getenv('DALLE_NAME')
-
-
-# Function to generate an image representing the customer complaint
 
 
 def generate_image(prompt):
